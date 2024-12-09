@@ -4,8 +4,7 @@ pub mod take_input {
         use std::io;
         let mut buffer = String::new();
         let stdin = io::stdin();
-        let mut handle = stdin.lock();
-        let result = handle.read_line(&mut buffer);
+        let result = stdin.read_line(&mut buffer);
         match result {
             Ok(_) => {}
             Err(_) => {println!("Make sure you input a number"); self::take_input();}
