@@ -1,11 +1,16 @@
 fn main() {
-    println!("Hello, world!");
+    use rand;
+    let answer = (rand::random() % 10000) + 1;
+    gameLogic(input, answer);
 }
 
-fn gameLogic(str_input: &str) {
-    let input_res = str_input.parse::<i32>();
-    let input = match input_res {
-        Ok(v) => v,
-        Err(_) => {, 1}
+fn gameLogic(input: i64, answer: i64) {
+    if input==answer {
+        // win condition
+        println!("Correct!")
+    }
+    match input > answer {
+       True => println!("Too high!"),
+       False => println!("Too low!")
     }
 }
