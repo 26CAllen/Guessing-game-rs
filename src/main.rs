@@ -1,22 +1,23 @@
 mod take_input;
 
 fn main() {
-    use take_input::take_input::take_input;
     use rand;
     let answer: i64 = (rand::random::<i64>() % 10000) + 1;
-    while game_logic(input, answer) != true {
+    while !game_logic(answer)  {
         continue;
     }
 }
 
 fn game_logic(answer: i64) -> bool {
-    let input = take_input();
+    println!("Input a number 1 to 10000: ");
+    use take_input::take_input::take_input;
     let input = take_input();
     if input==answer {
         // win condition
         println!("Correct!");
         return true;
     }
+    println!("{:?}", input);
     match input > answer {
        true => println!("Too high!"),
        false => println!("Too low!")
