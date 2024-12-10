@@ -27,7 +27,7 @@ jobs:
         # Artifact name
         name: Guessing Game # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./target/release/Guessing-game-rs.^d
+        path: ./target/release/Guessing-game-rs
         # The desired behavior if no files are found using the provided path.
         include-hidden-files: true
           
