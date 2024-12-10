@@ -1,13 +1,15 @@
 mod take_input;
 
 fn main() {
-    let counter: i64 = 0;
+    let mut counter: i64 = 0;
 
     use rand;
     let answer: i64 = (rand::random::<i64>() % 10000) + 1;
     while !game_logic(answer)  {
+        counter += 1;
         continue;
     }
+    println!("It took you {:?} tries", counter);
 }
 
 fn game_logic(answer: i64) -> bool {
@@ -19,7 +21,6 @@ fn game_logic(answer: i64) -> bool {
         println!("Correct!");
         return true;
     }
-    println!("{:?}", input);
     match input > answer {
        true => println!("Too high!"),
        false => println!("Too low!")
