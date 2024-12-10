@@ -1,23 +1,28 @@
+mod take_input;
+
 fn main() {
     let counter: i64 = 0;
 
     use rand;
-    let answer = (rand::random() % 10000) + 1;
-    gameLogic(input, answer, counter);
+    let answer: i64 = (rand::random::<i64>() % 10000) + 1;
+    while !game_logic(answer)  {
+        continue;
+    }
 }
 
-fn gameLogic(input: i64, answer: i64, mut counter: i64) {
+fn game_logic(answer: i64) -> bool {
+    println!("Input a number 1 to 10000: ");
+    use take_input::take_input::take_input;
+    let input = take_input();
     if input==answer {
         // win condition
         println!("Correct!");
-        println("It took you")
-        return;
+        return true;
     }
-
-    counter += 1;
-
+    println!("{:?}", input);
     match input > answer {
-       True => println!("Too high!"),
-       False => println!("Too low!")
+       true => println!("Too high!"),
+       false => println!("Too low!")
     }
+    false
 }
